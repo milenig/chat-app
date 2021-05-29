@@ -10,4 +10,4 @@ Go to localhost:3000
 ```
 
 ## Notes
-App was created fallowing Brad's tutorial on Youtube https://www.youtube.com/channel/UC29ju8bIPH5as8OGnQzwJyA
+App was created following Brad's tutorial on Youtube https://www.youtube.com/channel/UC29ju8bIPH5as8OGnQzwJyA
