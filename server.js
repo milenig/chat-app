@@ -15,7 +15,7 @@ const server = http.createServer(app);
 const io = socketio(server);
 app;
 
-const botName = "Chat Application Bot";
+const botName = "bot";
 
 // Set static folder -> connect current directory and public folder
 app.use(express.static(path.join(__dirname, "public")));

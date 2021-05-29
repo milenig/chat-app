@@ -21,7 +21,6 @@ socket.on("roomUsers", ({ room, users }) => {
 
 // Display message sent from server
 socket.on("message", (message) => {
-  console.log(message);
   outputMessage(message);
 
   // Fix scroll -> scroll down for every message -> see last message
@@ -47,10 +46,22 @@ chatForm.addEventListener("submit", (e) => {
 function outputMessage(message) {
   const div = document.createElement("div");
   div.classList.add("message");
-  div.innerHTML = `<p class="meta">${message.username} <span>${message.time}</span></p>
+  if (message.username == username) {
+    div.classList.add("current");
+  }
+  div.innerHTML = `<div class="avatar ${
+    message.username == "bot" ? "bot" : ""
+  }">
+    ${message.username.charAt(0)}
+  </div>
+  <div class="text-container ${message.username == "bot" ? "bot" : ""}">
     <p class="text">
         ${message.text}
-    </p>`;
+    </p>
+    <p class="meta"><span class="time">${
+      message.time
+    }</span>&#183;<span class="name">${message.username}</span></p>
+  </div>`;
   document.querySelector(".chat-messages").appendChild(div);
 }
 
@@ -62,6 +73,6 @@ function outputRoomName(room) {
 // Add users to DOM
 function outputUsers(users) {
   userList.innerHTML = `
-        ${users.map((user) => `<li>${user.username}</li>`).join("")}
+        ${users.map((user) => `<li><h2>${user.username}</h2></li>`).join("")}
     `;
 }
