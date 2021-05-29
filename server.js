@@ -30,7 +30,10 @@ io.on("connection", (socket) => {
     // Send message from server -> Welcome single client that connecting
     socket.emit(
       "message",
-      formatMessage(botName, "Welcome to Chat application :)")
+      formatMessage(
+        botName,
+        `Welcome to Chat application <span class="emoji">👋</span>`
+      )
     );
 
     // Broadcast when a user connects -> emit to everyone, not including client that's connecting -> to specific room
@@ -38,7 +41,10 @@ io.on("connection", (socket) => {
       .to(user.room)
       .emit(
         "message",
-        formatMessage(botName, `${user.username} has joind the chat`)
+        formatMessage(
+          botName,
+          `<span class="emoji">🎉</span> ${user.username} has joined the chat`
+        )
       );
 
     // Send users and room info
@@ -64,7 +70,10 @@ io.on("connection", (socket) => {
       // Emit to everyone in that room
       io.to(user.room).emit(
         "message",
-        formatMessage(botName, `${user.username} has left the chat`)
+        formatMessage(
+          botName,
+          `${user.username} has left the chat <span class="emoji">🙄</span>`
+        )
       );
 
       // Send users and room info

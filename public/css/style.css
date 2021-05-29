@@ -133,7 +133,7 @@ a {
 
 .chat-sidebar h2#room-name {
   font-size: 20px;
-  background: #4289f3;
+  background: rgba(255, 255, 255, 0.1);
   border-radius: 5px;
   font-weight: 500;
   padding: 10px;
@@ -226,6 +226,7 @@ ul h2::after {
   margin: auto;
   text-align: center;
   transform: scale(0.8);
+  padding: 8px 16px;
 }
 
 .chat-messages .message div.text-container.bot .meta {
@@ -283,6 +284,10 @@ form .btn {
   background-color: #4289f3;
   border-radius: 5px;
   color: white;
+}
+
+span.emoji {
+  font-size: 24px;
 }
 
 /* Join Page */
